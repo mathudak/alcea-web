@@ -1,0 +1,69 @@
+<div class="col">
+  <form [formGroup]="orderForm" role="form" name="orderForm" autocomplete="off" (ngSubmit)="submitForm($event, orderForm.value)">
+    <fieldset formGroupName="userGroup">
+      <legend>Kontaktne udaje</legend>
+      <div class="form-group mb-3">
+        <label for="name"><div class="d-flex align-items-center">
+            <span class="ml-1" i18n>Meno/Firma</span>
+          </div></label>
+        <input type="text" name="name" class="form-control" id="name" formControlName="name" />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="email"><div class="d-flex align-items-center">
+            <span class="ml-1" i18n>E-mail</span>
+          </div></label>
+        <input type="text" name="email" class="form-control" id="email" formControlName="email" placeholder="meno@domena.com"/>
+        <small class="text-danger" *ngIf="orderForm.get('userGroup.email').dirty &amp;&amp; orderForm.get('userGroup.email').errors &amp;&amp; orderForm.get('userGroup.email').errors.email" i18n>Nespravny e-mail</small>
+        <!-- <small class="text-danger" *ngIf="orderForm.get('userGroup.name').dirty &amp;&amp; orderForm.get('userGroup.name').errors &amp;&amp; orderForm.get('userGroup.name').errors.sameAccount">Can't send tokens to same account.</small> -->
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="phone"><div class="d-flex align-items-center">
+            <span class="ml-1" i18n>Telefone Cislo</span>
+          </div></label>
+        <input type="text" name="phone" class="form-control" id="phone" formControlName="phone" />
+        <!-- <small class="text-danger" *ngIf="orderForm.get('userGroup.name') &amp;&amp; orderForm.get('userGroup.name').errors &amp;&amp; orderForm.get('userGroup.name').errors.publicKey">Please insert an account name of the receiver, not a public key.</small> -->
+        <!-- <small class="text-danger" *ngIf="orderForm.get('userGroup.name') &amp;&amp; orderForm.get('userGroup.name').errors &amp;&amp; orderForm.get('userGroup.name').errors.sameAccount">Can't send tokens to same account.</small> -->
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Vybavenie</legend>
+
+      <div formGroupName="vydraSet">
+        <div class="form-group">
+          <label for="setVydra">Set Vydra</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                  <input type="checkbox" aria-label="Set vydra checkbox" formControlName="isSetVydra">
+              </div>              
+            </div>
+            <input type="text" class="form-control" formControlName="vydraSet">
+          </div>
+        </div>
+      </div>
+
+      <div formGroupName="palavaSet">
+          <div class="form-group">
+            <label for="setVydra">Set Pálava</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" aria-label="Set vydra checkbox" formControlName="isSetPalava">
+                </div>              
+              </div>
+              <input type="text" class="form-control" formControlName="palavaSet">
+            </div>
+          </div>
+        </div>
+
+      <div formGroupName="itemsGroup">
+        
+      </div>
+
+    </fieldset>
+
+  </form>
+</div>

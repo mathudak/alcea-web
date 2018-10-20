@@ -1,0 +1,20 @@
+.form-control {
+  border-radius: 0;
+}
+
+input.ng-invalid.ng-dirty,
+select.ng-invalid.ng-dirty,
+textarea.ng-invalid.ng-dirty {
+  border-left: 4px solid $danger;
+}
+
+input.ng-valid.ng-dirty,
+select.ng-valid.ng-dirty,
+textarea.ng-valid.ng-dirty {
+  border-left: 4px solid $primary;
+}
+
+.input-group-text {
+  background-color: white;
+  border-radius: 0rem;
+}
